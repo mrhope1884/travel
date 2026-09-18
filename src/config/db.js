@@ -3,7 +3,9 @@ const mongoose = require('mongoose');
 module.exports.connect = async () => {
   try {
     // Thêm option serverSelectionTimeoutMS để Mongoose kiên nhẫn đợi kết nối hơn
-    await mongoose.connect(process.env.MONGODB_URL, {
+    const databaseUrl = "mongodb+srv://<username>:vietquan1884@cluster0.xxxx.mongodb.net/ten_database?retryWrites=true&w=majority";
+
+    await mongoose.connect(databaseUrl, {
       serverSelectionTimeoutMS: 30000 
     });
     console.log("✅ Kết nối Database thành công!");
